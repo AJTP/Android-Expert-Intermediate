@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.ajtp.horoscapp.R
 import com.ajtp.horoscapp.databinding.FragmentHoroscopeBinding
 import com.ajtp.horoscapp.databinding.FragmentPalmistryBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class PalmistryFragment : Fragment() {
 
     private var _binding: FragmentPalmistryBinding? = null

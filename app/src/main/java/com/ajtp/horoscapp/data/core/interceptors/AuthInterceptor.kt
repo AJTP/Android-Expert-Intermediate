@@ -1,0 +1,21 @@
+package com.ajtp.horoscapp.data.core.interceptors
+
+import okhttp3.Interceptor
+import okhttp3.Response
+import javax.inject.Inject
+
+class AuthInterceptor @Inject constructor(private val tokenManager: TokenManager):Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain
+            .request()                                                  //Recoge la llamada original
+            .newBuilder()                                              //Construye una nueva llamada manteniendo lo anterior
+            .header("Authorization",tokenManager.getToken())    //Para pasarle un token por ejemplo
+            .build()                                                 //
+
+        return  chain.proceed(request)
+    }
+}
+
+class TokenManager @Inject constructor(){
+    fun getToken():String = "OBTENEMOS EL TOKEN"
+}

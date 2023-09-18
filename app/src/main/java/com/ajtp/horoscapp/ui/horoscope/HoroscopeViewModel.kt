@@ -10,13 +10,11 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class HoroscopeViewModel @Inject constructor(horoscopeProvider: HoroscopeProvider) : ViewModel(){
-
-
+class HoroscopeViewModel @Inject constructor(horoscopeProvider: HoroscopeProvider) : ViewModel() {
 
     //FLOW PARA DECIRLE AL FRAGMENT QUE CAMBIAN LOS DATOS
     private var _horoscope = MutableStateFlow<List<HoroscopeInfo>>(emptyList())
-    val horoscope:StateFlow<List<HoroscopeInfo>> = _horoscope
+    val horoscope: StateFlow<List<HoroscopeInfo>> = _horoscope
 
     init {
         _horoscope.value = horoscopeProvider.getHoroscopes()
